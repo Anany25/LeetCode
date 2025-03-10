@@ -4,7 +4,7 @@ class Solution:
             return ""
         prefix = strs[0]
         for s in strs[1:]:
-            while not s.startswith(prefix) and prefix:
+            while not s.startswith(prefix):
                 prefix = prefix[:-1]
             if not prefix:
                 return ""
