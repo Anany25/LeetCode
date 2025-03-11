@@ -29,7 +29,5 @@ class Solution:
         if carry == 1:
             ans.insert(0,1)
 
-        final =0
-        for i in ans:
-            final = final* 10 + i
-        return str(final)
+        ans = "".join(map(str,ans))
+        return ans
