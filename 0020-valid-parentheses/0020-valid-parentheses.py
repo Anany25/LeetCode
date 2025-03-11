@@ -1,23 +1,27 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        # Loop through each character in the string
-        for char in s:
-            # If it's an opening bracket, push it onto the stack.
-            if char in "([{":
-                stack.append(char)
+        n = len(s)
+        if n == 0:
+            return True
+
+        for i in s:
+            if i == '(' or i == '[' or i == '{':
+                stack.append(i)
             else:
-                # If it's a closing bracket and the stack is empty, it's invalid.
-                if not stack:
+                if len(stack) == 0:
                     return False
-                # Pop the last opening bracket from the stack.
+
                 top = stack.pop()
-                # Check if the popped bracket matches the current closing bracket.
-                if char == ')' and top != '(':
+
+                if i == ')' and top != '(':
                     return False
-                if char == ']' and top != '[':
+                elif i == ']' and top != '[':
                     return False
-                if char == '}' and top != '{':
+                elif i == '}' and top != '{':
                     return False
-        # After processing all characters, the stack should be empty for a valid string.
-        return len(stack) == 0
+        
+        if len(stack) == 0:
+            return True
+        else:
+            return False
