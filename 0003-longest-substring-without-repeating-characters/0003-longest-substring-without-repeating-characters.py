@@ -9,6 +9,7 @@ class Solution:
                 while vocab[left] != char:
                     left += 1
                 left += 1
+                
             vocab.append(char)
 
             print(vocab[left:])
