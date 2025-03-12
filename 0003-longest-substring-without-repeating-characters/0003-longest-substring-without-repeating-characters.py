@@ -2,19 +2,17 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         vocab = []
         maxi = 0
+        left = 0
         for char in s:
-            if char in vocab:
-                i = 0
-                while vocab[i] != char:
-                    vocab.pop(0)
-                vocab.pop(0)
-                vocab.append(char)
+            if char in vocab[left:]:
 
-            else:
-                vocab.append(char)
+                while vocab[left] != char:
+                    left += 1
+                left += 1
+            vocab.append(char)
 
-            print(vocab)
+            print(vocab[left:])
 
-            maxi = max(maxi, len(vocab))
+            maxi = max(maxi, len(vocab[left:]))
         
         return maxi
