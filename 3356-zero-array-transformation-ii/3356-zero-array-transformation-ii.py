@@ -2,7 +2,7 @@ class Solution:
     def minZeroArray(self, nums: List[int], queries: List[List[int]]) -> int:
         
         n = len(nums)
-        cum = [0] * (n + 1)
+        cum = [0] * (n)
 
 
         zero = True
