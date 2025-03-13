@@ -26,7 +26,7 @@ class Solution:
             if cur < nums[i]:
                 return -1
         
-        cum = [0] * (n + 1)
+        cum = [0] * (n)
 
         for k, x in enumerate(queries):
             cum[x[0]] += x[2]
