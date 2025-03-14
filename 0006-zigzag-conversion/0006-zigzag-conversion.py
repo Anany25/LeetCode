@@ -34,10 +34,15 @@ class Solution:
 
         ans = ""
 
+        f = [i for s in pat for i in s]
+        f = [i for i in f if i != 0]
+        for i in f:
+            if i != 0:
+                ans = ans + i
 
-        for i in range(0 ,len(pat)):
-            for j in range(0, len(pat[0])):
-                if pat[i][j] != 0:
-                    ans = ans + pat[i][j]
+        #for i in range(0 ,len(pat)):
+          #  for j in range(0, len(pat[0])):
+           #     if pat[i][j] != 0:
+                 #   ans = ans + pat[i][j]
         
         return ans
