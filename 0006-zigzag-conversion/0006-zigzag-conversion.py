@@ -1,7 +1,7 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         n = len (s)
-        if numRows == 1:
+        if numRows == 1 or numRows >= len(s):
             return s
 
         pat = [[0] * n for _ in range(n)]
