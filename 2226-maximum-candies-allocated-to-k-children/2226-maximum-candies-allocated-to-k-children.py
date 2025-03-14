@@ -13,6 +13,8 @@ class Solution:
             count = 0
             for c in candies:
                 count += c // mid
+                if count >= k:
+                    break
             
             if count >= k:
                 ans = mid
