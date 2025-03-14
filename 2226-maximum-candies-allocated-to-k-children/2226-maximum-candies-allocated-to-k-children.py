@@ -1,6 +1,7 @@
 class Solution:
     def maximumCandies(self, candies: List[int], k: int) -> int:
-        # Quick check: if the total candies are less than k, distribution is impossible
+
+
         if sum(candies) < k:
             return 0
 
@@ -9,12 +10,14 @@ class Solution:
         
         while lo <= hi:
             mid = (lo + hi) // 2
-            count = sum(c // mid for c in candies)
+            count = 0
+            for c in candies:
+                count += c // mid
             
             if count >= k:
-                ans = mid  # mid is a valid candidate
-                lo = mid + 1  # Try for a larger number
+                ans = mid
+                lo = mid + 1
             else:
-                hi = mid - 1  # mid is too high, reduce the search space
+                hi = mid - 1
                 
         return ans
