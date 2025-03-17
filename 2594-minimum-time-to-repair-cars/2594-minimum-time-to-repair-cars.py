@@ -1,3 +1,5 @@
+import math
+
 class Solution:
     def repairCars(self, ranks: List[int], cars: int) -> int:
         left = 0
@@ -13,7 +15,7 @@ class Solution:
 
             if repaired >= cars:
                 mini = min(mini, time)
-                right = time -1
+                right = time - 1
             else:
                 left = time + 1
 
