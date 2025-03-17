@@ -5,8 +5,7 @@ class Solution:
         j = n -1
         ans = 0
         while i < j:
-            vol = min(height[i],height[j]) * (j - i)
-            ans = max (ans, vol)
+            ans = max (ans, min(height[i],height[j]) * (j - i))
             if height[i] > height[j]:
                 j -= 1
             else:
