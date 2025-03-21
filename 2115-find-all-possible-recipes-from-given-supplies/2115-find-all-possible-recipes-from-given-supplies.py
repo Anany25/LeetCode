@@ -1,8 +1,7 @@
 class Solution:
     def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
         ans = set()
-        comb = set()
-        comb.update(supplies)
+        comb = set(supplies)
         n = len(recipes)
         i = 0
         while i < n:
