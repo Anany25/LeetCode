@@ -6,5 +6,4 @@ class Solution:
             signature = "".join(sorted(word))
             pairs[signature].append(word)
 
-        ans = list(pairs.values())
-        return ans
+        return list(pairs.values())
