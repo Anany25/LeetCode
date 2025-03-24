@@ -1,12 +1,18 @@
 class Solution(object):
     def isValidSudoku(self, board):
-        ans = []
+        row = defaultdict(set)
+        col = defaultdict(set)
+        box = defaultdict(set)
+
         for i in range(9):
             for j in range(9):
-                val = board[i][j]
-                if val != '.':
-                    ans += [(i, val), (val , j), (i // 3, j // 3, val)]
-        
-        print(ans, set(ans))
+                if board[i][j] != '.':
+                    k = (i//3, j//3)
+                    if board[i][j] in row[i] or board[i][j] in col[j] or board[i][j] in box[k]:
+                        return False
+                    else:
+                        row[i].add(board[i][j])
+                        col[j].add(board[i][j])
+                        box[k].add(board[i][j])
 
-        return len(ans) == len(set(ans))
+        return True
