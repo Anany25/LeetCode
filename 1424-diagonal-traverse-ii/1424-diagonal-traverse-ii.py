@@ -4,8 +4,7 @@ class Solution:
         
         for i, row in enumerate(nums):
             for j, val in enumerate(row):
-                d = i + j
-                dia[d].append(val)
+                dia[i + j].append(val)
 
         ans = []
         for s in sorted(dia.keys()):
