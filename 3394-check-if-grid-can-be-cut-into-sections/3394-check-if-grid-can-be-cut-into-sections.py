@@ -9,17 +9,33 @@ class Solution:
         x_intervals.sort()
         y_intervals.sort()
 
-        def helper(intervals):
-            lines =  0
-            head, last = intervals[0][0], intervals[0][1]
-            for line in intervals[1:]:
-                start, end = line
-                if start >= last:
-                    lines += 1
-                    head = start
-                    last = end
-                else:
-                    last = max(last,end)
-            return lines >=2
 
-        return helper(x_intervals) or helper(y_intervals) 
+        lines =  0
+        head, last = x_intervals[0][0], x_intervals[0][1]
+        for line in x_intervals[1:]:
+            start, end = line
+            if start >= last:
+                lines += 1
+                head = start
+                last = end
+            else:
+                last = max(last,end)
+            if lines ==2:
+                return True
+
+        lines =  0
+        head, last = y_intervals[0][0], y_intervals[0][1]
+        for line in y_intervals[1:]:
+            start, end = line
+            if start >= last:
+                lines += 1
+                head = start
+                last = end
+            else:
+                last = max(last,end)
+            if lines ==2:
+                return True
+
+
+        return False
+    
