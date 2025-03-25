@@ -7,9 +7,6 @@ class Solution:
             y_intervals.append([sY, eY])
 
         x_intervals.sort()
-        y_intervals.sort()
-
-
         lines =  0
         head, last = x_intervals[0][0], x_intervals[0][1]
         for line in x_intervals[1:]:
@@ -23,6 +20,7 @@ class Solution:
             if lines ==2:
                 return True
 
+        y_intervals.sort()
         lines =  0
         head, last = y_intervals[0][0], y_intervals[0][1]
         for line in y_intervals[1:]:
