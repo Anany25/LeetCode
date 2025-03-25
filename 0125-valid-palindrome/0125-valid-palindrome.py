@@ -5,6 +5,4 @@ class Solution:
             if char.isalnum():
                 s2.append(char.lower())
 
-        print(s2,s2[::-1])
-
         return s2[::-1] == s2
