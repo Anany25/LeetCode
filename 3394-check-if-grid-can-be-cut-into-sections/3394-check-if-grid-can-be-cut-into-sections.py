@@ -1,8 +1,10 @@
 class Solution:
     def checkValidCuts(self, n: int, rectangles: List[List[int]]) -> bool:
-        
-        x_intervals = [[rectangles[i][0], rectangles[i][2]] for i in range(len(rectangles))]
-        y_intervals = [[rectangles[i][1], rectangles[i][3]] for i in range(len(rectangles))]
+
+        x_intervals, y_intervals = [], []
+        for sX, sY, eX, eY in rectangles:
+            x_intervals.append([sX, eX])
+            y_intervals.append([sY, eY])
 
         x_intervals.sort()
         y_intervals.sort()
