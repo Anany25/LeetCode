@@ -7,7 +7,7 @@ class Solution:
             x = numbers[i] + numbers[j]
             if x == target:
                 return [i + 1, j + 1]
-            elif x < target:
+            if x < target:
                 i += 1
             else:
                 j -= 1
