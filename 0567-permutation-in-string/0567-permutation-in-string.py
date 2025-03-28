@@ -16,7 +16,7 @@ class Solution:
             
             for char in range(left,right):
                 d2[s2[char]] += 1
-            print(d2)
+    
             if d1== d2:
                 return True
 
