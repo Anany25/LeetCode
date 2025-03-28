@@ -9,7 +9,7 @@ class Solution:
         formed = 0
 
         left = 0
-        min_len = len(s) + 1
+        min_len = float('inf')
         min_window = ""
 
         for right in range(len(s)):
