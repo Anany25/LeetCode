@@ -24,4 +24,4 @@ class Solution:
             if d1 == d2:
                 return True
 
-        return False
+
