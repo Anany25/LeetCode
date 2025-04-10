@@ -1,15 +1,20 @@
 class Solution:
     def numberOfPowerfulInt(self, start: int, finish: int, limit: int, s: str) -> int:
-        @cache
-        def fn(val: str, i: int, is_smaller: bool) -> int:
-            if len(val) < len(s): return 0
-            if len(val) == len(s): return val >= s
-            if i == len(val) - len(s): return not is_smaller or val[i:] >= s
-            ans = 0
-            if is_smaller and int(val[i]) <= limit:
-                ans += (int(val[i])) * fn(val, i + 1, False)
-                ans += fn(val, i + 1, True)
-            else: ans += (1 + limit) * fn(val, i + 1, False)
-            return ans
-        
-        return fn(str(finish), 0, True) - fn(str(start - 1), 0, True)
+        b, f = str(start - 1), str(finish)
+        def helper(s1, s2, limit):
+            d = len(s1) - len(s2)
+            if d < 0:
+                return 0
+            elif d == 0:
+                return 0 if s2 > s1 else 1
+            suf = s1[d:]
+            cnt = 0
+            for i in range(d):
+                if limit < int(s1[i]):
+                    cnt += (limit + 1) ** (d - i)
+                    return cnt
+                cnt += int(s1[i]) * (limit + 1) ** (d - i - 1)
+            if suf >= s2:
+                cnt += 1
+            return cnt
+        return helper(f, s, limit) - helper(b, s, limit)
